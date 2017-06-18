@@ -34,6 +34,9 @@ public class VoiceUtils  {
     private static final String TAG="david";
     private boolean flag=false;
 
+    /**
+     * 初始化对象
+     * */
     public void initialTts(Context context) {
         this.mSpeechSynthesizer = SpeechSynthesizer.getInstance();
         this.mSpeechSynthesizer.setContext(context);
