@@ -18,18 +18,11 @@ import com.baidu.tts.client.TtsMode;
 public class VoiceUtils  {
     public SpeechSynthesizer mSpeechSynthesizer;
     public String mSampleDirPath;
-    public static final String SAMPLE_DIR_NAME = "baiduTTS";
     public static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
-    public static final String SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male.dat";
     public static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
     public static final String LICENSE_FILE_NAME = "temp_license";
     public static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
-    public static final String ENGLISH_SPEECH_MALE_MODEL_NAME = "bd_etts_speech_male_en.dat";
     public static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
-
-    public static final int PRINT = 0;
-    public static final int UI_CHANGE_INPUT_TEXT_SELECTION = 1;
-    public static final int UI_CHANGE_SYNTHES_TEXT_SELECTION = 2;
 
     private static final String TAG="david";
     private boolean flag=false;
