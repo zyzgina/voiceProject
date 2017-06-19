@@ -21,8 +21,8 @@ public class VoiceUtils {
     public static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
     public static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
     public static final String LICENSE_FILE_NAME = "temp_license";
-    public static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
-    public static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
+//    public static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
+//    public static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
 
     private static final String TAG = "david";
     private boolean flag = false;
@@ -47,9 +47,9 @@ public class VoiceUtils {
                 + LICENSE_FILE_NAME);
         // 请替换为语音开发者平台上注册应用得到的App ID (离线授权)
         this.mSpeechSynthesizer.setAppId("8535996"/*这里只是为了让Demo运行使用的APPID,请替换成自己的id。*/);
-        // 请替换为语音开发者平台注册应用得到的apikey和secretkey (在线授权)
-        this.mSpeechSynthesizer.setApiKey("MxPpf3nF5QX0pndKKhS7IXcB",
-                "7226e84664474aa098296da5eb2aa434"/*这里只是为了让Demo正常运行使用APIKey,请替换成自己的APIKey*/);
+//        // 请替换为语音开发者平台注册应用得到的apikey和secretkey (在线授权)
+//        this.mSpeechSynthesizer.setApiKey("MxPpf3nF5QX0pndKKhS7IXcB",
+//                "7226e84664474aa098296da5eb2aa434"/*这里只是为了让Demo正常运行使用APIKey,请替换成自己的APIKey*/);
         // 发音人（在线引擎），可用参数为0,1,2,3。。。（服务器端会动态增加，各值含义参考文档，以文档说明为准。0--普通女声，1--普通男声，2--特别男声，3--情感男声。。。）
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_SPEAKER, "0");
         // 设置Mix模式的合成策略
@@ -68,10 +68,10 @@ public class VoiceUtils {
         // 初始化tts
         mSpeechSynthesizer.initTts(TtsMode.MIX);
         // 加载离线英文资源（提供离线英文合成功能）
-        int result =
-                mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
-                        + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
-        Log.d(TAG, "loadEnglishModel result=" + result);
+//        int result =
+//                mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
+//                        + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
+//        Log.d(TAG, "loadEnglishModel result=" + result);
 
         //打印引擎信息和model基本信息
         printEngineInfo();
