@@ -151,6 +151,8 @@ public class VoiceUtils {
         public void onSpeechFinish(String s) {
             Log.d(TAG, "播报完成:" + s);
             flag = true;
+            if (listener != null)
+                listener.onSpeekEndListener(true);
         }
 
         @Override
@@ -158,5 +160,15 @@ public class VoiceUtils {
 
         }
     };
+
+    public interface SpeekEndListener {
+        public void onSpeekEndListener(boolean flag);
+    }
+
+    private SpeekEndListener listener;
+
+    public void setOnSpeekEndListener(SpeekEndListener listener) {
+        this.listener = listener;
+    }
 
 }
