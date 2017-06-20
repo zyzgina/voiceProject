@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.baidu.tts.auth.AuthInfo;
-import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.SynthesizerTool;
@@ -30,7 +29,7 @@ public class VoiceUtils {
     /**
      * 初始化对象
      */
-    public void initialTts(Context context) {
+    public void initialTts(Context context,SpeechSynthesizerListener synthesizerListener) {
         this.mSpeechSynthesizer = SpeechSynthesizer.getInstance();
         this.mSpeechSynthesizer.setContext(context);
         this.mSpeechSynthesizer.setSpeechSynthesizerListener(synthesizerListener);
@@ -121,53 +120,42 @@ public class VoiceUtils {
         Log.d(TAG, "speechModelInfo=" + speechModelInfo);
     }
 
-    private SpeechSynthesizerListener synthesizerListener = new SpeechSynthesizerListener() {
-        @Override
-        public void onSynthesizeStart(String s) {
+//    private SpeechSynthesizerListener synthesizerListener = new SpeechSynthesizerListener() {
+//        @Override
+//        public void onSynthesizeStart(String s) {
+//
+//        }
+//
+//        @Override
+//        public void onSynthesizeDataArrived(String s, byte[] bytes, int i) {
+//
+//        }
+//
+//        @Override
+//        public void onSynthesizeFinish(String s) {
+//            Log.d(TAG, "播报完成");
+//        }
+//
+//        @Override
+//        public void onSpeechStart(String s) {
+//
+//        }
+//
+//        @Override
+//        public void onSpeechProgressChanged(String s, int i) {
+//            Log.d(TAG, "语音播报:" + s + "  进度:" + i);
+//        }
+//
+//        @Override
+//        public void onSpeechFinish(String s) {
+//            Log.d(TAG, "播报完成:" + s);
+//            flag = true;
+//        }
+//
+//        @Override
+//        public void onError(String s, SpeechError speechError) {
+//
+//        }
+//    };
 
-        }
-
-        @Override
-        public void onSynthesizeDataArrived(String s, byte[] bytes, int i) {
-
-        }
-
-        @Override
-        public void onSynthesizeFinish(String s) {
-            Log.d(TAG, "播报完成");
-        }
-
-        @Override
-        public void onSpeechStart(String s) {
-
-        }
-
-        @Override
-        public void onSpeechProgressChanged(String s, int i) {
-            Log.d(TAG, "语音播报:" + s + "  进度:" + i);
-        }
-
-        @Override
-        public void onSpeechFinish(String s) {
-            Log.d(TAG, "播报完成:" + s);
-            flag = true;
-            if(listener!=null)
-                listener.onSpeekEndListener(true);
-        }
-
-        @Override
-        public void onError(String s, SpeechError speechError) {
-
-        }
-    };
-
-    private SpeekEndListener listener;
-
-    public interface SpeekEndListener {
-        public void onSpeekEndListener(boolean flag);
-    }
-
-    public void setOnSpeekEndListener(SpeekEndListener listener) {
-        this.listener = listener;
-    }
 }
