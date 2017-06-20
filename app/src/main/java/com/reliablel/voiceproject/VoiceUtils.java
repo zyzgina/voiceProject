@@ -26,7 +26,6 @@ public class VoiceUtils {
 
     private static final String TAG = "david";
     private boolean flag = false;
-    private SpeekEndListener speekEndListener;
 
     /**
      * 初始化对象
@@ -83,13 +82,7 @@ public class VoiceUtils {
      * @param
      */
     public int startSpeek(String content) {
-
-        return startSpeek(content, null);
-    }
-
-    public int startSpeek(String content, SpeekEndListener speekEndListener) {
         flag = false;
-        this.speekEndListener = speekEndListener;
         //需要合成的文本text的长度不能超过1024个GBK字节。
         if (TextUtils.isEmpty(content)) {
             content = "欢迎使用百度语音合成SDK,百度语音为你提供支持。";
@@ -151,12 +144,11 @@ public class VoiceUtils {
         @Override
         public void onSpeechProgressChanged(String s, int i) {
             Log.d(TAG, "语音播报:" + s + "  进度:" + i);
-            if (speekEndListener != null)
-                speekEndListener.setSpeekEndListener(i);
         }
 
         @Override
         public void onSpeechFinish(String s) {
+            Log.d(TAG,"播报完成:"+s);
             flag = true;
         }
 
