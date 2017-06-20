@@ -83,6 +83,7 @@ public class VoiceUtils {
      */
     public int startSpeek(String content) {
         flag = false;
+        Log.d(TAG,"是否播放完成:"+flag);
         //需要合成的文本text的长度不能超过1024个GBK字节。
         if (TextUtils.isEmpty(content)) {
             content = "欢迎使用百度语音合成SDK,百度语音为你提供支持。";
