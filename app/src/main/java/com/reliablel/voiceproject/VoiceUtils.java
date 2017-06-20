@@ -83,7 +83,7 @@ public class VoiceUtils {
      */
     public int startSpeek(String content) {
         flag = false;
-        Log.d(TAG,"是否播放完成:"+flag);
+        Log.d(TAG, "是否播放完成:" + flag);
         //需要合成的文本text的长度不能超过1024个GBK字节。
         if (TextUtils.isEmpty(content)) {
             content = "欢迎使用百度语音合成SDK,百度语音为你提供支持。";
@@ -149,8 +149,10 @@ public class VoiceUtils {
 
         @Override
         public void onSpeechFinish(String s) {
-            Log.d(TAG,"播报完成:"+s);
+            Log.d(TAG, "播报完成:" + s);
             flag = true;
+            if(listener!=null)
+                listener.onSpeekEndListener(true);
         }
 
         @Override
@@ -158,4 +160,14 @@ public class VoiceUtils {
 
         }
     };
+
+    private SpeekEndListener listener;
+
+    public interface SpeekEndListener {
+        public void onSpeekEndListener(boolean flag);
+    }
+
+    public void setOnSpeekEndListener(SpeekEndListener listener) {
+        this.listener = listener;
+    }
 }
