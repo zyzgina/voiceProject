@@ -84,10 +84,10 @@ public class VoiceUtils {
      */
     public int startSpeek(String content) {
 
-        return startSpeekListener(content, null);
+        return startSpeek(content, null);
     }
 
-    public int startSpeekListener(String content, SpeekEndListener speekEndListener) {
+    public int startSpeek(String content, SpeekEndListener speekEndListener) {
         flag = false;
         this.speekEndListener = speekEndListener;
         //需要合成的文本text的长度不能超过1024个GBK字节。
