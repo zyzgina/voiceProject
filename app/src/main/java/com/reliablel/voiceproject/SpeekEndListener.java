@@ -1,11 +1,11 @@
 package com.reliablel.voiceproject;
 
 /**
- * Describe: 播放完成监听
+ * Describe: 监听是否播放完成
  * Created Author: Gina
- * Created Date: 2017/6/19.
+ * Created Date: 2017/6/20.
  */
 
 public interface SpeekEndListener {
-    public void onSpeekEndListener(boolean isEnd);
+    public void setSpeekEndListener(int pectn);
 }
