@@ -22,7 +22,7 @@ public class VoiceUtils {
     public static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
     public static final String LICENSE_FILE_NAME = "temp_license";
 
-    private static final String TAG = "david";
+    private static final String TAG = "vioce";
     public boolean flag = false;
 
     /**
