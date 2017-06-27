@@ -69,15 +69,20 @@ public class VoiceUtils {
         // 初始化tts
         try {
             mSpeechSynthesizer.initTts(TtsMode.MIX);
-        }catch (Exception e){
-            Log.d(TAG,"初始化tts====报错");
+        } catch (Exception e) {
+            Log.d(TAG, "初始化tts====报错");
             e.printStackTrace();
         }
         // 加载离线英文资源（提供离线英文合成功能）
-        int result =
-                mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
-                        + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
-        Log.d(TAG, "loadEnglishModel result=" + result);
+        try {
+            int result = mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
+                    + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
+            Log.d(TAG, "loadEnglishModel result=" + result);
+        } catch (Exception e) {
+            Log.d(TAG, "加载离线英文资源====报错");
+            e.printStackTrace();
+        }
+
 
         //打印引擎信息和model基本信息
         printEngineInfo();
