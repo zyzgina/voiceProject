@@ -70,9 +70,13 @@ public class VoiceUtils {
             Log.d(TAG, "初始化tts====报错");
             e.printStackTrace();
         }
-
-        //打印引擎信息和model基本信息
-        printEngineInfo();
+        try {
+            //打印引擎信息和model基本信息
+            printEngineInfo();
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "打印引擎信息和model基本信息====报错");
+        }
     }
 
     /**
