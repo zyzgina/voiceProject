@@ -155,6 +155,8 @@ public class VoiceUtils {
         @Override
         public void onSpeechProgressChanged(String s, int i) {
             Log.d(TAG, "语音播报:" + s + "  进度:" + i);
+            if(onSpeekEndListener!=null)
+                onSpeekEndListener.setSpeekEndListener(false);
         }
 
         @Override
