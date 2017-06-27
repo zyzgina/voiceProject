@@ -67,7 +67,12 @@ public class VoiceUtils {
         }
 
         // 初始化tts
-        mSpeechSynthesizer.initTts(TtsMode.MIX);
+        try {
+            mSpeechSynthesizer.initTts(TtsMode.MIX);
+        }catch (Exception e){
+            Log.d(TAG,"初始化tts====报错");
+            e.printStackTrace();
+        }
         // 加载离线英文资源（提供离线英文合成功能）
         int result =
                 mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
