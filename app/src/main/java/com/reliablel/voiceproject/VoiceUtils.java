@@ -50,7 +50,7 @@ public class VoiceUtils {
         // 发音人（在线引擎），可用参数为0,1,2,3。。。（服务器端会动态增加，各值含义参考文档，以文档说明为准。0--普通女声，1--普通男声，2--特别男声，3--情感男声。。。）
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_SPEAKER, "0");
         //语速设置
-        this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_SPEED, "9");
+        this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_SPEED, "6");
         // 设置Mix模式的合成策略
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_MIX_MODE, SpeechSynthesizer.MIX_MODE_DEFAULT);
         // 授权检测接口(只是通过AuthInfo进行检验授权是否成功。)
