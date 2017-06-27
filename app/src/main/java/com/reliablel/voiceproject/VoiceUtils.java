@@ -21,9 +21,6 @@ public class VoiceUtils {
     public static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
     public static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
     public static final String LICENSE_FILE_NAME = "temp_license";
-    public static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
-    public static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
-
     private static final String TAG = "david";
     public boolean flag = false;
 
@@ -73,16 +70,6 @@ public class VoiceUtils {
             Log.d(TAG, "初始化tts====报错");
             e.printStackTrace();
         }
-        // 加载离线英文资源（提供离线英文合成功能）
-        try {
-            int result = mSpeechSynthesizer.loadEnglishModel(mSampleDirPath + "/" + ENGLISH_TEXT_MODEL_NAME, mSampleDirPath
-                    + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
-            Log.d(TAG, "loadEnglishModel result=" + result);
-        } catch (Exception e) {
-            Log.d(TAG, "加载离线英文资源====报错");
-            e.printStackTrace();
-        }
-
 
         //打印引擎信息和model基本信息
         printEngineInfo();
