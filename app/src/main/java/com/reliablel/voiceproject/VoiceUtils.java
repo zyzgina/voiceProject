@@ -16,13 +16,13 @@ import com.baidu.tts.client.TtsMode;
  */
 
 public class VoiceUtils {
-    public SpeechSynthesizer mSpeechSynthesizer;
-    public String mSampleDirPath;
-    public static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
-    public static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
-    public static final String LICENSE_FILE_NAME = "temp_license";
-    public static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
-    public static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
+    private SpeechSynthesizer mSpeechSynthesizer;
+    private String mSampleDirPath;
+    private static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
+    private static final String TEXT_MODEL_NAME = "bd_etts_text.dat";
+    private static final String LICENSE_FILE_NAME = "temp_license";
+    private static final String ENGLISH_SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female_en.dat";
+    private static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
 
     private static final String TAG = "david";
     private boolean flag = false;
@@ -109,6 +109,14 @@ public class VoiceUtils {
      */
     public boolean isEndSpeek() {
         return flag;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     /**
