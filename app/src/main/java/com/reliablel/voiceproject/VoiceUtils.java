@@ -73,6 +73,7 @@ public class VoiceUtils {
         try {
             //打印引擎信息和model基本信息
             printEngineInfo();
+            Log.d(TAG,"执行完成===============");
         }catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "打印引擎信息和model基本信息====报错");
