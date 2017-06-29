@@ -31,7 +31,6 @@ public class VoiceUtils {
     public void initialTts(Context context) {
         this.mSpeechSynthesizer = SpeechSynthesizer.getInstance();
         this.mSpeechSynthesizer.setContext(context);
-        this.mSpeechSynthesizer.setSpeechSynthesizerListener(synthesizerListener);
         // 文本模型文件路径 (离线引擎使用)
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_TEXT_MODEL_FILE, mSampleDirPath + "/"
                 + TEXT_MODEL_NAME);
@@ -95,6 +94,7 @@ public class VoiceUtils {
 
     public int startSpeek(String content, SpeekEndListener onSpeekEndListener) {
         flag = false;
+        this.mSpeechSynthesizer.setSpeechSynthesizerListener(synthesizerListener);
         this.onSpeekEndListener = onSpeekEndListener;
         Log.d(TAG, "是否播放完成:" + flag);
         //需要合成的文本text的长度不能超过1024个GBK字节。
