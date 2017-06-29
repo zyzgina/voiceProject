@@ -31,6 +31,7 @@ public class VoiceUtils {
     public void initialTts(Context context) {
         this.mSpeechSynthesizer = SpeechSynthesizer.getInstance();
         this.mSpeechSynthesizer.setContext(context);
+        this.mSpeechSynthesizer.setSpeechSynthesizerListener(synthesizerListener);
         // 文本模型文件路径 (离线引擎使用)
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_TTS_TEXT_MODEL_FILE, mSampleDirPath + "/"
                 + TEXT_MODEL_NAME);
@@ -66,8 +67,8 @@ public class VoiceUtils {
         // 初始化tts
         try {
             mSpeechSynthesizer.initTts(TtsMode.MIX);
-        } catch (Exception e) {
-            Log.d(TAG, "初始化tts====报错");
+        }catch (Exception e){
+            Log.d(TAG,"初始化tts====报错");
             e.printStackTrace();
         }
         Log.d(TAG, "初始化tts");
@@ -82,26 +83,21 @@ public class VoiceUtils {
      * @param
      */
     public int startSpeek(String content) {
-        return startSpeek(content, null);
+        return startSpeek(content,null);
     }
-
     /**
      * 开始播报
      *
      * @param
      */
-    private String content;
-
-    public int startSpeek(String content, SpeekEndListener onSpeekEndListener) {
+    public int startSpeek(String content,SpeekEndListener onSpeekEndListener) {
         flag = false;
-        this.mSpeechSynthesizer.setSpeechSynthesizerListener(synthesizerListener);
-        this.onSpeekEndListener = onSpeekEndListener;
+        this.onSpeekEndListener=onSpeekEndListener;
         Log.d(TAG, "是否播放完成:" + flag);
         //需要合成的文本text的长度不能超过1024个GBK字节。
         if (TextUtils.isEmpty(content)) {
             content = "欢迎使用百度语音合成SDK,百度语音为你提供支持。";
         }
-        this.content = content;
         int result = this.mSpeechSynthesizer.speak(content);
         if (result < 0) {
             Log.d(TAG, "error,please look up error code in doc or URL:http://yuyin.baidu.com/docs/tts/122 ");
@@ -159,16 +155,16 @@ public class VoiceUtils {
         @Override
         public void onSpeechProgressChanged(String s, int i) {
             Log.d(TAG, "语音播报:" + s + "  进度:" + i);
-            if (onSpeekEndListener != null)
-                onSpeekEndListener.setSpeekEndListener(content, false);
+            if(onSpeekEndListener!=null)
+                onSpeekEndListener.setSpeekEndListener(false);
         }
 
         @Override
         public void onSpeechFinish(String s) {
             Log.d(TAG, "播报完成:" + s);
             flag = true;
-            if (onSpeekEndListener != null)
-                onSpeekEndListener.setSpeekEndListener(content, true);
+            if(onSpeekEndListener!=null)
+                onSpeekEndListener.setSpeekEndListener(true);
         }
 
         @Override
@@ -177,8 +173,8 @@ public class VoiceUtils {
         }
     };
 
-    public interface SpeekEndListener {
-        void setSpeekEndListener(String content, boolean isEnd);
+    public interface SpeekEndListener{
+        void setSpeekEndListener(boolean isEnd);
     }
 
     private SpeekEndListener onSpeekEndListener;
