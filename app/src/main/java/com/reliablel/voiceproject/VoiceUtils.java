@@ -111,6 +111,25 @@ public class VoiceUtils {
     public void releaseSpeek() {
         this.mSpeechSynthesizer.release();
     }
+    /**
+     * 停止播报
+     * */
+    public void stop(){
+        this.mSpeechSynthesizer.stop();
+    }
+    /**
+     * 暂停播报
+     * */
+    public void pause(){
+        this.mSpeechSynthesizer.pause();
+    }
+
+    /**
+     * 重新开始播报
+     * */
+    public void resume(){
+        this.mSpeechSynthesizer.resume();
+    }
 
     /**
      * 判断播放释放结束
