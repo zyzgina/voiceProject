@@ -114,20 +114,20 @@ public class VoiceUtils {
     /**
      * 停止播报
      * */
-    public void stop(){
+    public void stopSpeek(){
         this.mSpeechSynthesizer.stop();
     }
     /**
      * 暂停播报
      * */
-    public void pause(){
+    public void pauseSpeek(){
         this.mSpeechSynthesizer.pause();
     }
 
     /**
      * 重新开始播报
      * */
-    public void resume(){
+    public void resumeSpeek(){
         this.mSpeechSynthesizer.resume();
     }
 
